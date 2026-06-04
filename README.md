@@ -30,6 +30,11 @@ platformio run -e esp32dev -t upload
 
 (Use `platformio`, not `pio`, if the `pio` shim is blocked on your system.)
 
+This dev board has no auto-reset circuit, so put it in download mode manually:
+**press and hold `BOOT`, then run the upload, and keep holding `BOOT` until the
+output shows `Writing...`** before releasing. (`upload_flags = --before=no_reset`
+is set so esptool does not bump the chip out of download mode.)
+
 ## Run unit tests (host)
 
 The portable protocol/settings logic is unit-tested on the host with a native
